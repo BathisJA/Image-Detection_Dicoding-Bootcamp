@@ -16,6 +16,8 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
+Python 3.13 is required (TensorFlow doesn't ship wheels for 3.14 yet). On [Streamlit Community Cloud](https://share.streamlit.io), pick **Python 3.13** in the app's Advanced settings when deploying.
+
 Upload a JPG or PNG of a hand sign and press **Predict**. The model was trained on photos against a green background — studio-style shots work much better than, say, a hand on your desk.
 
 ## Retrain it

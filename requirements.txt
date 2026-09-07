@@ -1,4 +1,8 @@
-streamlit>=1.36
-tensorflow>=2.16
+# Tested together on Python 3.13 (TensorFlow does not publish wheels for 3.14 yet —
+# on Streamlit Community Cloud, set the app's Python version to 3.13 in
+# Advanced settings, otherwise this file fails to resolve).
+streamlit==1.63.0
+tensorflow==2.21.0
 matplotlib
+scipy
 pillow
