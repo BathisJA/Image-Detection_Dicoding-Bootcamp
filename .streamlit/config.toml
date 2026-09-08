@@ -1,6 +1,11 @@
 [theme]
 base = "light"
-primaryColor = "#C24D21"
-backgroundColor = "#FAF9F6"
+primaryColor = "#E2574C"
+backgroundColor = "#FFF9F0"
 secondaryBackgroundColor = "#FFFFFF"
-textColor = "#171512"
+textColor = "#2B2118"
+
+[server]
+# The app rejects uploads over 1 MB itself; keep the server limit in sync
+# so Streamlit's caption matches what the app actually allows.
+maxUploadSize = 1

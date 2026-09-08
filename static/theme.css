@@ -1,0 +1,196 @@
+/* ==========================================================================
+   RPS Classifier — theme
+   Direction: playful flat. Warm cream, white cards with chunky ink
+   outlines, rounded corners, and three gesture identity colors (rock
+   coral / paper blue / scissors amber) that carry the whole palette.
+   Fredoka display + Karla body. No shadows, no gradients, no badges —
+   the only depth cue is the button squishing inward on press.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Karla:wght@400;500;700&display=swap');
+
+:root {
+  --bg:       #FFF9F0;
+  --surface:  #FFFFFF;
+  --ink:      #2B2118;
+  --muted:    #9A8F83;
+  --line:     #EFE5D8;
+  --rock:     #E2574C;  --rock-hover: #C94F41;
+  --paper:    #4C9EE2;
+  --scissors: #E9A13B;
+  --radius:   18px;
+}
+
+/* ---- base ------------------------------------------------------------- */
+
+.stApp {
+  background: var(--bg); color: var(--ink);
+  font-family: 'Karla', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.stApp [data-testid="stHeader"],
+.stApp [data-testid="stFooter"] { display: none; }
+
+.stApp .block-container {
+  max-width: 760px !important; margin: 0 auto;
+  padding: 2.1rem 1.4rem 1.4rem !important;
+}
+.stApp [data-testid="stVerticalBlock"] { row-gap: .7rem !important; }
+
+.stApp .pop { animation: pop-in .35s cubic-bezier(.34, 1.56, .64, 1) both; }
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stApp * { animation: none !important; transition: none !important; }
+}
+
+/* gesture colors */
+.stApp .g-rock     { color: var(--rock); }
+.stApp .g-paper    { color: var(--paper); }
+.stApp .g-scissors { color: var(--scissors); }
+
+/* ---- header ------------------------------------------------------------- */
+
+.stApp .app-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 1rem; border-bottom: 2px solid var(--ink);
+}
+.stApp .app-header h1 {
+  font-family: 'Fredoka', sans-serif !important;
+  font-weight: 600; font-size: 1.5rem; letter-spacing: -.01em;
+  color: var(--ink); margin: 0;
+}
+.stApp .app-header .meta {
+  font-size: .8rem; color: var(--muted);
+}
+
+/* ---- intro ---------------------------------------------------------------- */
+
+.stApp .intro {
+  margin: 1.3rem 0 .5rem;
+  font-size: .92rem; line-height: 1.55; color: var(--muted);
+  max-width: 33rem;
+}
+
+/* ---- uploader ------------------------------------------------------------ */
+
+.stApp [data-testid="stWidgetLabel"] p {
+  font-family: 'Karla', sans-serif !important; font-size: .78rem;
+  font-weight: 700; color: var(--ink);
+  margin-bottom: .35rem;
+}
+.stApp [data-testid="stFileUploaderDropzone"] {
+  background: var(--surface) !important;
+  border: 2px solid var(--ink) !important;
+  border-radius: var(--radius) !important; box-shadow: none !important;
+  transition: border-color .15s ease;
+}
+.stApp [data-testid="stFileUploaderDropzone"]:hover { border-color: var(--rock) !important; }
+.stApp [data-testid="stFileUploaderDropzone"] * { color: var(--ink) !important; }
+.stApp [data-testid="stFileUploaderDropzone"] small,
+.stApp [data-testid="stFileUploaderDropzone"] span { color: var(--muted) !important; }
+.stApp [data-testid="stFileUploaderDropzone"] button {
+  border: 2px solid var(--ink) !important; background: var(--surface) !important;
+  color: var(--ink) !important; border-radius: 999px !important;
+  font-family: 'Karla', sans-serif !important; font-size: .74rem !important;
+  font-weight: 700; box-shadow: none !important;
+  transition: color .15s ease, border-color .15s ease;
+}
+.stApp [data-testid="stFileUploaderDropzone"] button:hover {
+  border-color: var(--rock) !important; color: var(--rock) !important;
+  background: var(--surface) !important;
+}
+.stApp [data-testid="stFileUploaderDropzone"] svg { fill: var(--muted); }
+
+/* ---- uploaded image --------------------------------------------------------- */
+
+.stApp [data-testid="stImage"] img {
+  border-radius: var(--radius); display: block; margin: 0 auto;
+  border: 2px solid var(--ink);
+}
+.stApp .caption {
+  text-align: center; margin-top: .5rem;
+  font-size: .74rem; color: var(--muted);
+}
+
+/* ---- predict button: coral, squishes when pressed ----------------------------- */
+
+.stApp .stButton { text-align: center; }
+.stApp .stButton > button {
+  background: var(--rock) !important; color: var(--surface) !important;
+  border: 2px solid var(--ink) !important; border-radius: 999px !important;
+  font-family: 'Fredoka', sans-serif !important; font-size: .86rem !important;
+  font-weight: 500; letter-spacing: .02em;
+  padding: .5rem 2rem !important; box-shadow: none !important;
+  transition: background-color .15s ease, transform .15s ease;
+}
+.stApp .stButton > button:hover {
+  background: var(--rock-hover) !important; transform: scale(1.02);
+}
+.stApp .stButton > button:active {
+  transform: scale(.96);
+}
+.stApp .stButton > button:focus-visible {
+  outline: 3px solid var(--rock) !important; outline-offset: 2px;
+}
+
+/* ---- result ---------------------------------------------------------------------- */
+
+.stApp .result {
+  border: 2px solid var(--ink); border-radius: var(--radius);
+  padding: 1.1rem 1.3rem 1.25rem; margin-top: .5rem;
+  background: var(--surface);
+}
+.stApp .result-label {
+  font-size: .74rem; font-weight: 700; color: var(--muted);
+  margin-bottom: .35rem;
+}
+.stApp .result-call {
+  font-family: 'Fredoka', sans-serif !important;
+  font-weight: 600; font-size: 1.85rem; line-height: 1.15;
+  color: var(--ink); margin: 0; text-transform: capitalize;
+}
+.stApp .result-call .g-emoji { margin-right: .4rem; }
+.stApp .result-conf {
+  margin-top: .3rem; font-size: .82rem; color: var(--muted);
+}
+
+/* probability rows: gesture + label, bar, pct */
+.stApp .probs { margin-top: 1.1rem; display: flex; flex-direction: column; gap: .75rem; }
+.stApp .prob-row {
+  display: grid; grid-template-columns: 6.4rem 1fr 2.8rem;
+  gap: .8rem; align-items: center;
+}
+.stApp .prob-label {
+  font-weight: 700; font-size: .84rem; color: var(--ink);
+}
+.stApp .prob-label .g-emoji { margin-right: .4rem; }
+.stApp .prob-row.dim .prob-label { color: var(--muted); }
+.stApp .prob-track {
+  height: 10px; background: var(--line); border-radius: 999px; overflow: hidden;
+}
+.stApp .prob-fill { height: 100%; border-radius: 999px; transition: width .5s ease; }
+.stApp .prob-fill.f-rock     { background: var(--rock); }
+.stApp .prob-fill.f-paper    { background: var(--paper); }
+.stApp .prob-fill.f-scissors { background: var(--scissors); }
+.stApp .prob-row.dim .prob-fill { opacity: .3; }
+.stApp .prob-pct {
+  font-size: .8rem; font-weight: 700; text-align: right; color: var(--ink);
+}
+.stApp .prob-row.dim .prob-pct { color: var(--muted); font-weight: 400; }
+
+.stApp .notice {
+  text-align: center; padding: .9rem 0;
+  font-size: .84rem; color: var(--muted);
+}
+
+/* ---- error / limits ------------------------------------------------------------ */
+
+.stApp .error-note {
+  border: 2px solid var(--rock); background: var(--surface);
+  border-radius: var(--radius); padding: .75rem 1rem;
+  font-size: .84rem; color: var(--rock-hover); font-weight: 700;
+}

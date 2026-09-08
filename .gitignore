@@ -1,5 +1,26 @@
+# Python
 .venv/
 __pycache__/
 *.pyc
+
+# Jupyter
 .ipynb_checkpoints/
+
+# Streamlit — keep config.toml, ignore secrets
 .streamlit/secrets.toml
+
+# OS cruft
+Thumbs.db
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Scratch files used during development
+_test*
+_shot*
+_run_nb.py
+_build_nb.py
+_streamlit.log
+_httpserver.log
